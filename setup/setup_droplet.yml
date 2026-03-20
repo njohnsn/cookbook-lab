@@ -59,7 +59,7 @@
 
     - name: Add Docker APT Repository
       ansible.builtin.apt_repository:
-        repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+        repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu {{ ansible_facts['distribution_release'] }} stable"
         state: present
         filename: docker
         update_cache: true
@@ -167,7 +167,7 @@
   vars:
     ansible_python_interpreter: /root/miniconda/bin/python
   environment:
-    PATH: "/root/miniconda/bin:/root/.local/bin:{{ ansible_env.PATH }}"
+    PATH: "/root/miniconda/bin:/root/.local/bin:{{ ansible_facts['env']['PATH'] }}"
   tasks:
     - name: Clone cookbook-lab
       ansible.builtin.git:
