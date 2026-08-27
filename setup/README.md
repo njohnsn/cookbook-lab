@@ -12,14 +12,14 @@ The virtual machine is configured to run the network automation cookbook lab usi
     - [2. Fork and Clone the Git Repository](#2-fork-and-clone-the-git-repository)
     - [3. Install the `lab` tool](#3-install-the-lab-tool)
     - [4. Setup environment files](#4-setup-environment-files)
-    - [5. Download the Arista cEOS images](#5-download-the-arista-ceos-images)
+    - [5. Download the Arista cEOS images](#5-download-the-arista-ceos-and-junos-crpd-images)
     - [6. Create a Digital Ocean API token](#6-create-a-digital-ocean-api-token)
     - [7. Create an SSH key pair and retrieve its fingerprint](#7-create-an-ssh-key-pair-and-retrieve-its-fingerprint)
     - [8. Pointing to the Forked Repository for Installation](#8-pointing-to-the-forked-repository-for-installation)
     - [9. Create a Digital Ocean droplet](#9-create-a-digital-ocean-droplet)
   - [Interacting with the Lab Scenarios](#interacting-with-the-lab-scenarios)
     - [Connecting Visual Studio Code to Your DigitalOcean Droplet](#connecting-visual-studio-code-to-your-digitalocean-droplet)
-    - [Note About the Lab Chapters](#note-about-the-lab-chapters)
+    - [Note About the Lab Chapters](#remote-machine-setup)
   - [Removing the Lab Environment](#removing-the-lab-environment)
 
 ## Requirements
@@ -28,7 +28,7 @@ This guide uses DigitalOcean as the cloud provider, and it's important to note t
 
 ### 1. Create a Digital Ocean account
 
-Go to their website and create an account if you don't have one already. You can use this [link](https://www.digitalocean.com/try/free-trial-offer) for a free trial offer.
+Go to their website and create an account if you don't have one already. You can use this [Digital Ocean](https://www.digitalocean.com/try/free-trial-offer) for a free trial offer.
 
 ### 2. Fork and Clone the Git Repository
 
@@ -91,7 +91,7 @@ Next, we will go over the steps to populate some of these variables to set up th
 
 ### 5. Download the Arista cEOS and Junos cRPD images
 
-The lab environment uses Arista cEOS and Junos cRPD container images. You need to register and download these images from the Arista website. Once registered, use this [link](https://www.arista.com/en/support/software-download) to search and download the images under "cEOS-lab" > "EOS-<version>" > "cEOS64-lab-<version>.tar.xz".
+The lab environment uses Arista cEOS and Junos cRPD container images. You need to register and download these images from the Arista website. Once registered, use this [Arista](https://www.arista.com/en/support/software-download) to search and download the images under "cEOS-lab" > "EOS-[version]" > "cEOS64-lab-[version].tar.xz".
 
 Save the location of the downloaded file to `CEOS_IMAGE_PATH` and `CRPD_IMAGE_PATH` under the `.setup.env` file. This will be used by Ansible to upload the image to your droplet.
 
@@ -145,7 +145,7 @@ lab --help
 lab setup deploy
 ```
 
-The setup playbook will ask for the droplet image, its size and region to be deployed. It comes with default values, but you can change them if you prefer a bigger droplet size or region, for more information see [here](https://slugs.do-api.dev/).
+The setup playbook will ask for the droplet image, its size and region to be deployed. It comes with default values, but you can change them if you prefer a bigger droplet size or region, for more information see [API](https://slugs.do-api.dev/).
 
 > **IMPORTANT:** If you encounter issues, such as when trying to install packages on the droplet, you may see messages like the following:
 >
